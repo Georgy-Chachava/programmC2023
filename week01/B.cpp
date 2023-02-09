@@ -8,7 +8,7 @@ int main() {
     cin >> a;
     cin >> b;
     cin >> c;
-    int f, g, s, r;
+    float f, g, s, r, u;
     if (b*b-4*a*c>0) {
         f = (-b-sqrt(b*b-4*a*c))/(2*a);
         g = (-b+sqrt(b*b-4*a*c))/(2*a);
