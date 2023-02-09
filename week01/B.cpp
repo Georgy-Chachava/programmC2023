@@ -21,5 +21,9 @@ int main() {
     if (b*b-4*a*c<0) {
         cout << '\n' << endl;
     }
+    if (a == 0) {
+        u = -c/b
+        cout << u << endl
+    }
     return 0;
 }
