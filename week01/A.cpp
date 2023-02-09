@@ -4,7 +4,8 @@
 using namespace std;
 
 int main() {
-    int a=2, b=4;
-    cout << "c = " << sqrt(a*a + b*b) << endl;
+    int a, b;
+    cin >> a >> b;
+    cout << sqrt(a*a + b*b) << endl;
     return 0;
 }
