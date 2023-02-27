@@ -5,10 +5,16 @@
 
 using namespace std;
 
-void print_array(int array[2][3], int m, int n) {
+void print_transposed(int array[3][2], int m, int n) {
+    int mass[2][3];
+    for (int i = 0; i<n; i++) {
+        for (int j=0; j<m; j++) {
+            mass[i][j] = array[j][i];
+        }
+    }
     for (int i = 0; i<n; ++i) {
         for (int j = 0; j<m; j++) {
-            cout << array[i][j] << "\t";
+            cout << mass[i][j] << "\t";
         }
         cout << endl;
     }
@@ -23,12 +29,6 @@ int main() {
             cin >> array[i][j];
         }
     }
-    int mass[2][3];
-    for (int i = 0; i<n; i++) {
-        for (int j=0; j<k; j++) {
-            mass[i][j] = array[j][i];
-        }
-    }
-    print_array(mass, k, n);
+    print_transposed(array, k, n);
     return 0;
 }
