@@ -7,14 +7,14 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-void find_two(int* array, int s, int a){
+void find_two(int* array, int s, int a) {
     int l = 0;
     int r = l - 1;
     while (l < r){
-        if (array[l] + array[r] == s){
+        if (array[l] + array[r] == s) {
             return;
         }
-        if (array[l] + array[r] < s){
+        if (array[l] + array[r] < s) {
             l++;
         } else {
             r--;
@@ -22,14 +22,14 @@ void find_two(int* array, int s, int a){
     }
 } 
 
-int main(){
-    double time1 = 0;
+int main() {
+    double t1 = 0;
     unsigned seed = 1001;
     int s_count = 1000;
-    for (int m = 100; m<10100; m += 500){
-        int* array = new int[m];
-        for (int i = 0; i < m; i ++){
-            array[i] = i;
+    for (int m = 100; m<10100; m += 500) {
+        int* a = new int[m];
+        for (int i = 0; i < m; i ++) {
+            a[i] = i;
         } 
 
         std::default_random_engine rng(seed);
@@ -37,15 +37,15 @@ int main(){
 
         auto begin = std::chrono::steady_clock::now();
         for (int j = 0; j < s_count; j++){
-            find_two(array, dstr(rng), m); 
+            find_two(a, dstr(rng), m); 
         }
         auto end = std::chrono::steady_clock::now();
   
-        auto time_span = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-        time1 = time_span.count();
+        auto time_s = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+        t1 = time_s.count();
 
-        std::cout << time1/s_count << std::endl;
-        delete [] array;
+        std::cout << t1/s_count << std::endl;
+        delete [] a;
     }
 
     return 0;
