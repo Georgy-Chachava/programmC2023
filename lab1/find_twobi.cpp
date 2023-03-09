@@ -9,7 +9,7 @@ using std::endl;
 
 void find_two(int* array, int s, int a) {
     int l = 0;
-    int r = l - 1;
+    int r = a - 1;
     while (l < r){
         if (array[l] + array[r] == s) {
             return;
