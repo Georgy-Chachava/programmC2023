@@ -64,8 +64,6 @@ int main() {
         for (int j = 0; j < i; j++) {
             array[j] = rand();
         }
-        std::default_random_engine rng(seed);
-        std::uniform_int_distribution<unsigned> dstr(0, 3*i);
         auto begin = std::chrono::steady_clock::now();
         for (int j = 0; j < s; j++){
             sort2(array, 0, i, i); 
