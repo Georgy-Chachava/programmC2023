@@ -69,7 +69,7 @@ int main(){
         }
         sort2(array, 0, i, i); 
         cout << n_swaps << endl;
-        int number_of_swaps = 0;
+        int n_swaps = 0;
     }
     return 0;
 }
