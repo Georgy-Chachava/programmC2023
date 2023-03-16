@@ -62,9 +62,9 @@ void sort2(unsigned arr[], unsigned const begin_idx, unsigned const end_idx, uns
 int main(){
     double t = 0;
     unsigned seed = 1001;
-    for(int i = 100; i<2100; i += 100){
+    for (int i = 100; i<2100; i += 100) {
         unsigned array[i];
-        for(int j = 0; j < i; j++){
+        for (int j = 0; j < i; j++) {
             array[j] = rand();
         }
         sort2(array, 0, i, i); 
