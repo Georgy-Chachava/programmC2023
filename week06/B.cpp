@@ -22,6 +22,22 @@ int main() {
             n += 1;
         }
     }
+    for (int i = n; i > 0; i--) {
+        for (int j = 0; j < i - 1; j++) {
+            if (p[j] >= p[j + 1]) {
+                if (p[j] == p[j + 1]) {
+                    if ((output[j]).compare(output[j + 1]) > 0) {
+                        swap_str(output[j], output[j + 1]);
+                    }
+                } else {
+                    swap(p[j], p[j + 1]);
+                    swap_str(output[j], output[j + 1]);
+                }
+            }
+        }
+    }
+    for (int k = 0; k < n; k++) {
+        std::cout << output[k] << ' ' << std::endl;
+    }
     return 0;
-
 }
