@@ -6,6 +6,18 @@ struct Students {
     int average_points;
 };
 
+void swap(int l, int r) {
+    int tmp = l;
+    l = r;
+    r = tmp;
+}
+
+void swap_str(string &l, string &r) {
+    string tmp = l;
+    l = r;
+    r = tmp;
+}
+
 int main() {
     int M = 0;
     int N = 0;
