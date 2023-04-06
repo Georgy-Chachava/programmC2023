@@ -145,48 +145,6 @@ Node* find_key(List* list_ptr, int key) {
     return list_ptr->NIL;
 }
 
-void remove_key(List* list_ptr, int key) {
-    int p = 0;
-    if (list_ptr->HEAD == list_ptr->NIL) {
-        return;
-    }
-    if (list_ptr->HEAD->key == key) {
-        if (list_ptr->HEAD->next == list_ptr->NIL) {
-            delete list_ptr->HEAD;
-            list_ptr->size--;
-            list_ptr->HEAD = list_ptr->NIL;
-            list_ptr->TAIL = list_ptr->NIL;
-            return;
-        }
-        Node* a = list_ptr->HEAD->next;
-        delete list_ptr->HEAD;
-        list_ptr->size--;
-        a->prev = list_ptr->NIL;
-        list_ptr->HEAD = a;
-    }
-    Node* b = list_ptr->HEAD;
-    while (b != list_ptr->NIL) {
-        if (b->key == key) {
-            if (b == list_ptr->TAIL) {
-                p = 1;
-            }
-            Node* c = b->prev;
-            Node* d = b->next;
-            delete d;
-            list_ptr->size--;
-            c->next = d;
-            d->prev = c;
-            if (p == 1) {
-                list_ptr->TAIL = b->prev;
-            }
-            return;
-        }
-        
-        b = b->next;
-    }
-
-}
-
 int main() {
     return 0;
 }
