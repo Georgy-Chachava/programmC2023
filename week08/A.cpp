@@ -1,7 +1,7 @@
-#include <iostrean>
+#include <iostream>
 
 struct Node {
-    Node* key=0;
+    int key=0;
     Node* next=nullptr;
 };
 
@@ -49,10 +49,10 @@ void print_list(Node *head_ref) {
 
 Node* read(Node* head) {
     int a = 0;
-    std::cin << a;
+    std::cin >> a;
     while (a != 0) {
         push_back(head, a);
-        std::cin << a;
+        std::cin >> a;
     }
     push_back(head, 0);
     return head;
@@ -76,26 +76,9 @@ Node* rev(Node* head) {
     return head;
 }
 
-int find_middle(const Node* head) {
-    int a = 0;
-    if (head == nullptr) {
-        return head;
-    }
-    const Node* b = head;
-    const Node* c = head;
-    while (b != nullptr) {
-        a++;
-        if (a%2 == 1) {
-            c = c->next;
-        }
-        b = b->next;
-    }
-    return c->key;
-}
-
 int main() {
     Node* head = nullptr;
-    head = read_list(head);
+    head = read(head);
     head = rev(head);
     print_list(head);
     destroy_list(head);
