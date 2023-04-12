@@ -76,6 +76,113 @@ Node* rev(Node* head) {
     return head;
 }
 
+int find_middle(const Node *head) {
+    int a = 1;
+    if (head == nullptr) {
+        return 0;
+    }
+    const Node *b = head;
+    const Node *c = head;
+    while (b != nullptr) {
+        a++;
+        if (a % 2 == 1) {
+            c = c->next;
+        }
+        b = b->next;
+    }
+    return c->key;
+}
+
+Node* mergeTwoLists(Node* list1, Node* list2) {
+    if (list1 == nullptr) {
+        return list2;
+    }
+    if (list2 == nullptr) {
+        return list1;
+    }
+    Node* a1 = list1;
+    Node* a2 = list2;
+    while (a2 != nullptr) {
+        while ((a2->data > a1->data) and (a1->next != nullptr)) {
+            a1 = a1->next;
+        }
+        Node* b = a1->next;
+        Node* el = new Node;
+        a1->next = el;
+        el->data = a2->data;
+        el->next = b;
+        a2 = a2->next;
+    }
+    return list1;
+}
+
+void check_correct(Node* head) {
+    if (head == nullptr) {
+        return;
+    }
+    Node* a = head;
+    Node* b = a->next;
+    Node* c = nullptr;
+    while (a->key != '\n') {
+        b = new Node;
+        b->key = std::getchar();
+        if (a->key == b->key) {
+            std::cout << "NO" << std::endl;
+            return;
+        }
+        b->next = nullptr;
+        c = a;
+        b = b->next;
+    }
+    if (c->key == '(') {
+        std::cout << "NO" << std::endl;
+        return;
+    }
+    std::cout << "YES" << std::endl;
+    return;
+}
+
+void check_brack(Node* head) {
+    Node* a = head;
+    Node* b = a->next;
+    Node* c = nullptr;
+    while (a->key != '\n') {
+        b = new Node;
+        b->key = std::getchar();
+        if ((b->key == '}') or (b->key == '>') or (b->key == ']') or (b->key == ')')) {
+            b->data = 0; 
+        } else {
+            b->data = 1;
+        }
+        if ((b->key == '(') or (b->key == ')')) {
+            b->t = '1';
+        }
+        if ((b->key == '{') or (b->key == '}')) {
+            b->t = '2';
+        }
+        if ((b->key == '[') or (b->key == ']')) {
+            b->t = '3';
+        }
+        if ((b->key == '<') or (b->key == '>')) {
+            b->t = '4';
+        }
+        if ((a->data == b->data) or ((a->data == 1) and a->t != b->t)) {
+            std::cout << "NO" << std::endl;
+            return;
+        }
+        b->next = nullptr;
+        c = a;
+        a = b;
+        b = b->next;
+    }
+    if (c->data == 1) {
+        std::cout << "NO" << std::endl;
+        return;
+    }
+    std::cout << "YES" << std::endl;
+    return;
+}
+
 int main() {
     Node* head = nullptr;
     head = read(head);
